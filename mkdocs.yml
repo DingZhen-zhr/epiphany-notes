@@ -1,0 +1,52 @@
+# filepath: c:\Users\18258\my-project\mkdocs.yml
+site_name: Epiphany's Notes
+nav:
+  - Home: index.md
+  - About: about.md
+  - Contact: contact.md
+  - Section:
+    - Section Home: sections/section.md
+    - Page 1: sections/page-1.md
+    - Page 2: sections/page-2.md
+    - Page 3: sections/page-3.md
+  - Computer Science: computer/CSAPP.md
+  - English: english/IELTS.md
+
+
+theme:
+  name: material
+  features:
+    - toc.integrate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+  logo: images/logo.png         # 网页左上角 logo
+  favicon: images/favicon.png   # 浏览器标签页图标
+  language: zh        # 设置默认语言为中文
+  font:
+    text: Roboto         # 正文和标题字体
+    code: Roboto Mono    # 代码块字体
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到夜间模式
+    - scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到白天模式
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
