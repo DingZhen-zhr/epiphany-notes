@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../sections/page-3/">
+        <link rel="prev" href="../../contact/">
       
       
         <link rel="next" href="../../english/IELTS/">
@@ -285,7 +285,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../sections/section/" class="md-tabs__link">
+        <a href="../../sections/section.md" class="md-tabs__link">
           
   
   
@@ -505,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sections/section/" class="md-nav__link">
+      <a href="../../sections/section.md" class="md-nav__link">
         
   
   
@@ -528,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sections/page-1/" class="md-nav__link">
+      <a href="../../sections/page-1.md" class="md-nav__link">
         
   
   
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sections/page-2/" class="md-nav__link">
+      <a href="../../sections/page-2.md" class="md-nav__link">
         
   
   
@@ -574,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sections/page-3/" class="md-nav__link">
+      <a href="../../sections/page-3.md" class="md-nav__link">
         
   
   
@@ -1007,6 +1007,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Chapter3 程序的机器级表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 历史观点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 程序编码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 程序编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 机器级代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 代码示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1341,8 +1389,12 @@ B2T_w(\vec{x})=-x_{w-1}2^{w-1}+\sum\limits_{i=0}^{w-2}x_i2^i
 $$
 B2T<sub>w</sub>是一个双射</p>
 <h6 id="224">2.2.4.   有符号数无符号数间转换</h6>
+<p>强制类型转换的结果保持位值不变，只是改变了解释这些位的方式</p>
+<p>数值可能会改变，但是位模式不变</p>
 <h6 id="225">2.2.5    有、无符号数</h6>
 <h6 id="226">2.2.6    扩展一个数字的位表示</h6>
+<p>要将无符号数转化为一个更大的数据类型，我们只要简单地在表示的开头添加0，被称为<strong>零扩展</strong>（zero extension）</p>
+<p>要将一个补码数字转换为一个更大的数据类型，可以执行一个<strong>符号扩展</strong>（sign extension）</p>
 <h6 id="227">2.2.7    截断数字</h6>
 <h5 id="23">2.3   整数运算</h5>
 <h6 id="231">2.3.1    无符号加法</h6>
@@ -1359,6 +1411,46 @@ B2T<sub>w</sub>是一个双射</p>
 <h6 id="244">2.4.4    舍入</h6>
 <h6 id="245">2.4.5    浮点运算</h6>
 <h4 id="chapter3">Chapter3   程序的机器级表示</h4>
+<h5 id="31">3.1   历史观点</h5>
+<p>关于Intel的x86处理器的介绍</p>
+<h5 id="32">3.2   程序编码</h5>
+<p>用Unix命令行编译C程序文件p1.c：</p>
+<pre><code class="language-unix">linux&gt; gcc -Og -o p p1.c
+</code></pre>
+<p>hello.c（源程序、文本） -&gt; hello.i （修改后源程序、文本）-&gt; hello.s（汇编程序、文本） -&gt; hello.o（可重定位目标程序、二进制） -&gt; hello（可执行目标程序、二进制）</p>
+<h6 id="321">3.2.1    机器级代码</h6>
+<p>两种抽象：1.指令集体系结构或指令集架构</p>
+<p>​                  2.机器级程序使用的内存地址是虚拟地址</p>
+<h6 id="322">3.2.2    代码示例</h6>
+<p>欲看到C语言编译器产生的汇编代码：在命令行使用“-S”选项</p>
+<pre><code>linux&gt;gcc -Og -S mstore.c
+</code></pre>
+<p>(对这个代码的解释：</p>
+<ol>
+<li>
+<p>命令分解</p>
+</li>
+<li>
+<p><code>linux&gt;</code>: 这是<strong>终端提示符</strong>，不是命令的一部分。它表示系统准备接收命令。你的提示符可能是 <code>user@hostname:~$</code> 或其他形式。</p>
+</li>
+<li><code>gcc</code>: 这是 <strong>GCC 编译器</strong>的主命令。它用于编译 C、C++ 等多种语言。这里它被告知要处理一个 <code>.c</code> 文件，所以它会调用 C 语言编译器。</li>
+<li><code>-Og</code>: 这是一个<strong>编译器选项</strong>，用于指定优化级别。</li>
+<li><code>-O</code> 表示“优化”。</li>
+<li><code>g</code> 表示“调试（debug）”。</li>
+<li><code>-Og</code> 的含义是：<strong>进行优化，但保持优化方式不影响调试体验</strong>。这是一种非常适合在开发阶段进行调试的优化级别。</li>
+<li><code>-S</code>: 这是另一个<strong>编译器选项</strong>，它告诉 GCC：<strong>只进行编译和汇编，但不要进行链接</strong>。具体来说，它会完成以下步骤：</li>
+<li><strong>预处理</strong>：处理源代码中的 <code>#include</code> 和 <code>#define</code> 等预处理指令。</li>
+<li><strong>编译</strong>：将预处理后的 C 语言源代码<strong>翻译成汇编语言（Assembly）</strong>。</li>
+<li><strong>停止</strong>：生成一个汇编语言文件（<code>.s</code> 文件）后<strong>停止</strong>，不生成最终的二进制可执行文件。</li>
+<li>
+<p><code>mstore.c</code>: 这是输入的<strong>源代码文件</strong>，是一个用 <strong>C 语言</strong> 编写的程序。</p>
+</li>
+<li>
+<p>执行结果</p>
+</li>
+</ol>
+<p>执行这个命令后，GCC 会处理 <code>mstore.c</code> 文件，并生成一个名为 <code>mstore.s</code> 的新文件。这个 <code>.s</code> 文件里面包含的是由 C 代码翻译而成的<strong>汇编语言（Assembly）</strong> 代码。</p>
+<p>)</p>
 <h4 id="chapter4">Chapter4   处理器体系结构</h4>
 <h4 id="chapter5">Chapter5   优化程序性能</h4>
 <h4 id="chapter6">Chapter6   存储器层次结构</h4>
