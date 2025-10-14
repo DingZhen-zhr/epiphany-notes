@@ -3,11 +3,11 @@ site_name: Epiphany's Notes
 nav:
   - Home: index.md
   - About: about.md
-  - Contact: contact.md
-  - Section:
-    - Section Home: sections/section.md
-    - Page 1: sections/page-1.md
-    - Page 2: sections/page-2.md
+  - Industrial Design:
+    - 设计思维与表达: Industrial Design/设计思维与表达.md
+    - 设计与艺术基础: Industrial Design/设计与艺术基础.md
+    - 实体、结构与制造: Industrial Design/实体、结构与制造.md
+    - 智能设计基础: Industrial Design/智能设计基础.md
     - Page 3: sections/page-3.md
   - Computer Science: computer/CSAPP.md
   - English: english/IELTS.md
